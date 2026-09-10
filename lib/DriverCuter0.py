@@ -79,7 +79,7 @@ class DriverCuter0:
             print("Movement was not completed")
         
         t.setCurrentPosition(0)
-        """
+        
         t.setStallguard_Callback(2, threshold, my_callback) # after this function call, StallGuard is active
         finishedsuccessfully = t.runToPositionSteps(4000, MovementAbsRel.relative)    #move 4000 steps forward
         if(finishedsuccessfully == True):
@@ -91,4 +91,4 @@ class DriverCuter0:
         
         print(t.getCurrentPosition())
         self.endHome = int(t.getCurrentPosition())
-        """
+        
