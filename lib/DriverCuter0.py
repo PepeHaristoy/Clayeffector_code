@@ -5,6 +5,7 @@ from machine import Pin
 
 ##p Las primeras piezas de este codigo es una iniciación segmentada para poder hacer debugging
 ##p vamos a partir con la definición de parametros relevantes para el uart
+
 #initiate the TMC_2209 class
 # use your pins for pin_step, pin_dir, pin_en, pin_rx, pin_tx, mtr_id (defined by MS1 and MS2 pins) here
 class DriverCuter0:
