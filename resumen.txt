@@ -1,0 +1,19 @@
+the idea of this code is to make a general resume of the libraries that we are using.
+
+we are using the TMC libraries that its based on the work of anonymousaga  - TMC2209_RPI_PICO available on Github
+so the TMC are these
+
+- TMC_2209_uart : communications basics its usefull to understand how things work,
+                  but we don´t need to modify nothing here.
+
+- TMC_2209_reg : reg values and address.
+
+- TMC_2209_StepperDriver : the first library that we have to look, i made a sheatsheet of this library because this one
+                    its really messy, an important value that we need to be aware is of the serial port config
+                    that we are using, check RPICO pinout to know which serial are we using.
+
+And we have the Driver libraries, that we made to build the working of the Nema drivers of the effector
+DriverCuter0 and DriverCuter1 are for the movement and configuration of  the extruder nemas
+DriverCuter2 is for the cutter movement and its configuration.
+
+end_effector in an simplified library made to work as an interface between the other libraries to make more natural creating instruction in the main sequence
