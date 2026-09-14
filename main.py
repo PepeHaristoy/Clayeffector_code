@@ -8,13 +8,13 @@ input_extruder = None
 iter_count = 0
 effector = end_effector()
 
-a=(Pin(2, Pin.IN, Pin.PULL_DOWN))
-b=(Pin(3, Pin.IN, Pin.PULL_DOWN))
-c=(Pin(4, Pin.IN, Pin.PULL_DOWN))
-d=(Pin(5, Pin.IN, Pin.PULL_DOWN))
+a=(Pin(5, Pin.IN, Pin.PULL_DOWN))
+b=(Pin(6, Pin.IN, Pin.PULL_DOWN))
+c=(Pin(7, Pin.IN, Pin.PULL_DOWN))
+d=(Pin(8, Pin.IN, Pin.PULL_DOWN))
 
-enable=(Pin(6, Pin.IN, Pin.PULL_DOWN))
-action_ended=(Pin(7, Pin.OUT, value=0))
+enable=(Pin(9, Pin.IN, Pin.PULL_DOWN))
+action_ended=(Pin(10, Pin.OUT, value=0))
 
 
 ### we define the functions to use in the code
