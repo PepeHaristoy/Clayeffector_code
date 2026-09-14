@@ -12,7 +12,7 @@ class DriverCuter0:
     def __init__(self):
         
         self.endHome = 0
-        self.tmc = TMC_2209(12, 11, 10, Pin(17), Pin(16),mtr_id=0)
+        self.tmc = TMC_2209(12, 11, 10, Pin(1), Pin(0),mtr_id=0)
         #we have to keep the motor off until we need it
         
     def configure_and_report(self):
