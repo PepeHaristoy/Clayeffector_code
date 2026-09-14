@@ -71,7 +71,7 @@ class DriverCuter1:
             t.stop()
             
         t.setStallguard_Callback(3, threshold, my_callback) # after this function call, StallGuard is active
-        finishedsuccessfully = t.runToPositionSteps(-4000, MovementAbsRel.relative)    #move 4000 steps forward
+        finishedsuccessfully = t.runToPositionSteps(-9000, MovementAbsRel.relative)    #move 4000 steps forward
         if(finishedsuccessfully == True):
             print("Movement finished successfully")
         else:
@@ -80,7 +80,7 @@ class DriverCuter1:
         t.setCurrentPosition(0)
 
         t.setStallguard_Callback(3, threshold, my_callback) # after this function call, StallGuard is active
-        finishedsuccessfully = t.runToPositionSteps(4000, MovementAbsRel.relative)    #move 4000 steps forward
+        finishedsuccessfully = t.runToPositionSteps(9000, MovementAbsRel.relative)    #move 4000 steps forward
         if(finishedsuccessfully == True):
             print("Movement finished successfully")
         else:

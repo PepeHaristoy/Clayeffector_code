@@ -8,13 +8,13 @@ input_extruder = None
 iter_count = 0
 effector = end_effector()
 
-a=(Pin(5, Pin.IN, Pin.PULL_DOWN))
-b=(Pin(6, Pin.IN, Pin.PULL_DOWN))
-c=(Pin(7, Pin.IN, Pin.PULL_DOWN))
-d=(Pin(8, Pin.IN, Pin.PULL_DOWN))
+a=(Pin(18, Pin.IN, Pin.PULL_UP))
+b=(Pin(19, Pin.IN, Pin.PULL_UP))
+c=(Pin(20, Pin.IN, Pin.PULL_UP))
+d=(Pin(21, Pin.IN, Pin.PULL_UP))
 
-enable=(Pin(9, Pin.IN, Pin.PULL_DOWN))
-action_ended=(Pin(10, Pin.OUT, value=0))
+enable=(Pin(22, Pin.IN, Pin.PULL_UP))
+action_ended=(Pin(26, Pin.OUT, value=0))
 
 
 ### we define the functions to use in the code
@@ -23,13 +23,13 @@ def read_robot_inputs(a,b,c,d):
     input_cutter = None
     input_extruder = None
     
-    if a.value() == 1:
+    if a.value() == 0:
         input_cutter = 1
-    elif b.value() == 1:
+    elif b.value() == 0:
         input_cutter = 2
-    elif c.value() == 1:
+    elif c.value() == 0:
         input_extruder = 1  
-    elif d.value() == 1:
+    elif d.value() == 0:
         input_extruder = 2  
     else:
         input_cutter = None
@@ -94,20 +94,25 @@ secuencia_home_cutter()
 secuencia_home_extruder()
 ### we define the main loop to use in the code waiting for input
 
-while enable.value() == 1:
-    time.sleep(0.1)
-    read_robot_inputs(a,b,c,d)
-    time.sleep(0.1)
-    if input_cutter is not None:
-        secuencia_move_cutter(input_cutter)
-        action_ended.value(1)
+while True:
+    if enable.value() == 0:
+        read_robot_inputs(a,b,c,d)
         time.sleep(0.1)
-        action_ended.value(0)
-        input_cutter = None
-    elif input_extruder is not None:
-        secuencia_move_extruder(input_extruder)
-        action_ended.value(1)
+        print("input_cutter: ", input_cutter, "input_extruder: ", input_extruder)
+
+        if input_cutter is not None:
+            secuencia_move_cutter(input_cutter)
+            action_ended.value(1)
+            time.sleep(0.1)
+            action_ended.value(0)
+            input_cutter = None
+
+        elif input_extruder is not None:
+            secuencia_move_extruder(input_extruder)
+            action_ended.value(1)
+            time.sleep(0.1)
+            action_ended.value(0)
+            input_extruder = None
+            iter_count += 1
+    else:
         time.sleep(0.1)
-        action_ended.value(0)
-        input_extruder = None
-        iter_count += 1
