@@ -15,7 +15,7 @@ class DriverCuter2:
         MS2Pin = Pin(10,Pin.OUT)
         MS1Pin.value(0)
         MS2Pin.value(0)
-        self.tmc = TMC_2209(15, 14, 13, Pin(1), Pin(0),mtr_id=2)
+        self.tmc = TMC_2209(15, 14, 13, Pin(17), Pin(16),mtr_id=2)
         #we have to keep the motor off until we need it
         
     def configure_and_report(self):
@@ -75,7 +75,7 @@ class DriverCuter2:
             t.stop()
             
         t.setStallguard_Callback(4, threshold, my_callback) # after this function call, StallGuard is active
-        finishedsuccessfully = t.runToPositionSteps(-4000, MovementAbsRel.relative)    #move 4000 steps forward
+        finishedsuccessfully = t.runToPositionSteps(-9000, MovementAbsRel.relative)    #move 4000 steps forward
         if(finishedsuccessfully == True):
             print("Movement finished successfully")
         else:
@@ -84,7 +84,7 @@ class DriverCuter2:
         t.setCurrentPosition(0)
 
         t.setStallguard_Callback(4, threshold, my_callback) # after this function call, StallGuard is active
-        finishedsuccessfully = t.runToPositionSteps(4000, MovementAbsRel.relative)    #move 4000 steps forward
+        finishedsuccessfully = t.runToPositionSteps(9000, MovementAbsRel.relative)    #move 4000 steps forward
         if(finishedsuccessfully == True):
             print("Movement finished successfully")
         else:
