@@ -70,19 +70,15 @@ def secuencia_move_extruder(input_extruder):
 
     elif input_extruder == 2 and iter_count ==1:
         effector.extruder_start_motor()
-        effector.extruder_move_to_position_mm(210)
+        effector.extruder_move_to_position_mm(180)
         effector.extruder_stop_motor()
     elif input_extruder == 2 and iter_count ==2:
         effector.extruder_start_motor()
-        effector.extruder_move_to_position_mm(140)
+        effector.extruder_move_to_position_mm(90)
         effector.extruder_stop_motor()
     elif input_extruder == 2 and iter_count ==3:
         effector.extruder_start_motor()
-        effector.extruder_move_to_position_mm(70)
-        effector.extruder_stop_motor()
-    elif input_extruder == 2 and iter_count ==4:
-        effector.extruder_start_motor()
-        effector.extruder_move_to_position_mm(3)
+        effector.extruder_move_to_position_mm(1)
         effector.extruder_stop_motor()
     else:
         return None
